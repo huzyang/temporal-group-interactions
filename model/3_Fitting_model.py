@@ -42,8 +42,8 @@ import pandas as pd
 # 添加 code 目录到 Python 路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'code'))
 
-from fitting import fit_gsize_dist, fit_gtrans_mat  # noqa: E402
-from utils import change_width, centered_np_hist  # noqa: E402
+from code.fitting import fit_gsize_dist, fit_gtrans_mat  # noqa: E402
+from code.utils import change_width, centered_np_hist  # noqa: E402
 
 # ----------------------------------------------------------------
 # 常量配置

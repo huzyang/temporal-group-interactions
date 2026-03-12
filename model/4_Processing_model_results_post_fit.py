@@ -59,16 +59,16 @@ import pickle
 # 添加 code 目录到 Python 路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'code'))
 
-from model import read_edgelists_from_df  # noqa: E402
-from model_analysis import (
+from code.model import read_edgelists_from_df  # noqa: E402
+from code.model_analysis import (
     get_group_durations,
     get_group_times,
     get_dis_agg_matrices,
     get_full_dis_agg_matrices,
     dis_agg_matrix_to_df
 )  # noqa: E402
-from utils import get_cumulative_Gs_from_Hs, get_groups_dict_from_Hs  # noqa: E402
-from data_analysis import measure_social_memory, get_interevent_times  # noqa: E402
+from code.utils import get_cumulative_Gs_from_Hs, get_groups_dict_from_Hs  # noqa: E402
+from code.data_analysis import measure_social_memory, get_interevent_times  # noqa: E402
 
 # ----------------------------------------------------------------
 # 常量配置

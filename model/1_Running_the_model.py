@@ -61,9 +61,9 @@ def create_parameter_space():
     L = 1
 
     # 测试模式 - 参数组合
-    alphas = [0.05, 0.2]
-    n0s = [3, 5]
-    epsilons = [1, 5]
+    alphas = [0.2]
+    n0s = [5]
+    epsilons = [5]
 
     # 生产模式 - 完整参数组合
     # alphas = [0.05, 0.2, 0.4, 0.6, 0.8, 0.95]

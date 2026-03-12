@@ -31,8 +31,8 @@ import pandas as pd
 # 添加 code 目录到 Python 路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'code'))
 
-from model import read_edgelists_from_df  # noqa: E402
-from model_analysis import group_size_dist, get_transition_matrix, transition_matrix_to_df  # noqa: E402
+from code.model import read_edgelists_from_df  # noqa: E402
+from code.model_analysis import group_size_dist, get_transition_matrix, transition_matrix_to_df  # noqa: E402
 
 # ----------------------------------------------------------------
 # 常量配置
