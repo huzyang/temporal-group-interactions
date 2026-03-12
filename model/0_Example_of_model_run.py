@@ -15,9 +15,9 @@ import pandas as pd
 
 sys.path.append('../code/')
 
-from model import TemporalHypergraphModel  # noqa: E402
-from model import run_from_df_and_save_edgelists, read_edgelists_from_df  # noqa: E402
-from model_analysis import group_size_dist, get_transition_matrix  # noqa: E402
+from code.model import TemporalHypergraphModel  # noqa: E402
+from code.model import run_from_df_and_save_edgelists, read_edgelists_from_df  # noqa: E402
+from code.model_analysis import group_size_dist, get_transition_matrix  # noqa: E402
 
 def setup_matplotlib_fonts():
     """设置 Matplotlib 中文字体支持"""

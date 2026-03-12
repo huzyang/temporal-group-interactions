@@ -37,8 +37,8 @@ import pandas as pd
 # 添加 code 目录到 Python 路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'code'))
 
-from model import TemporalHypergraphModel  # noqa: E402
-from model import run_from_df_and_save_edgelists, read_edgelists_from_df  # noqa: E402
+from code.model import TemporalHypergraphModel  # noqa: E402
+from code.model import run_from_df_and_save_edgelists, read_edgelists_from_df  # noqa: E402
 
 def setup_matplotlib_fonts():
     """设置 Matplotlib 中文字体支持"""
@@ -55,8 +55,8 @@ def setup_matplotlib_fonts():
 def create_parameter_space():
     """创建参数空间 DataFrame"""
     # 固定参数
-    N = 700
-    t_max = 2000
+    N = 300
+    t_max = 1000
     beta = 0.8
     L = 1
 
