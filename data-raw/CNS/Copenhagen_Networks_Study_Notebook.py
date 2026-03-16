@@ -183,10 +183,9 @@ def plot_gender_distribution(gender_stats):
     """
     labels = ['Male', 'Female']
     sizes = [gender_stats['males'], gender_stats['females']]
-    colors = ['#lightcoral', '#lightskyblue']
 
     plt.figure(figsize=(8, 6))
-    plt.pie(sizes, labels=labels, colors=['#lightskyblue', '#lightcoral'],
+    plt.pie(sizes, labels=labels, colors=['lightskyblue', 'lightcoral'],
             autopct='%1.1f%%', shadow=True, startangle=90)
     plt.title('Gender Distribution', fontsize=16)
     plt.axis('equal')

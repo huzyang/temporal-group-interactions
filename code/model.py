@@ -6,7 +6,7 @@ import copy
 import numpy as np
 import os
 
-from utils import logistic, normalize_dict
+from code.utils import logistic, normalize_dict
 
 def get_group_probability(known_to_n, group_members):
     """

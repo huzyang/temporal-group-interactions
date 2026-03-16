@@ -7,7 +7,7 @@ import pandas as pd
 import copy
 import random
 
-from utils import get_jaccard, normalize_by_row
+from code.utils import get_jaccard, normalize_by_row
 
 
 def groups_at_time_t(df, timestamp, dataset):

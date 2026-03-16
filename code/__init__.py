@@ -6,13 +6,13 @@ Temporal Group Interactions Model Code Package
 """
 
 # 导入主要模块
-from .model import (
+from code.model import (
     TemporalHypergraphModel,
     run_from_df_and_save_edgelists,
     read_edgelists_from_df
 )
 
-from .model_analysis import (
+from code.model_analysis import (
     group_size_dist,
     get_transition_matrix,
     transition_matrix_to_df,
@@ -23,7 +23,7 @@ from .model_analysis import (
     dis_agg_matrix_to_df
 )
 
-from .fitting import (
+from code.fitting import (
     compute_JSD,
     fit_gsize_dist,
     compute_JSD_trans_mat,
@@ -32,17 +32,17 @@ from .fitting import (
     get_distance_from_vec
 )
 
-from .data_analysis import (
+from code.data_analysis import (
     measure_social_memory,
     get_interevent_times
 )
 
-from .data_processing import (
+from code.data_processing import (
     LoadData,
     get_triadic_closure_links_to_add_at_time_t
 )
 
-from .utils import (
+from code.utils import (
     logistic,
     normalize_dict,
     normalize_by_row,

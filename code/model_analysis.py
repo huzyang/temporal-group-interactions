@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import copy
 
-from utils import get_jaccard, get_groups_dict_from_Hs, normalize_by_row
+from code.utils import get_jaccard, get_groups_dict_from_Hs, normalize_by_row
 
 def group_size_dist(Hs):
     """
