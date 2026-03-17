@@ -63,7 +63,7 @@ def create_parameter_space():
     # 测试模式 - 参数组合
     alphas = [0.2]
     n0s = [5]
-    epsilons = [5]
+    epsilons = [5,20]
 
     # 生产模式 - 完整参数组合
     # alphas = [0.05, 0.2, 0.4, 0.6, 0.8, 0.95]
@@ -120,7 +120,7 @@ def run_simulations(pars_df, output_path):
             args=(pars_id, pars_df, output_path)
         )
         if (pars_id + 1) % 50 == 0 or pars_id == total_runs - 1:
-            print(f'已提交 {min(pars_id + 1, total_runs)}/{total_runs} 个任务到进程池...')
+            print(f'已提交 {min(pars_id + 1, total_runs)}/{total_runs} 个任务到进程池,等待完成...')
 
     pool.close()
     pool.join()

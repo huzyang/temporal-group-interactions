@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-CNS 和 DyLNet 数据集的群体交互分析脚本
+CNS 数据集的群体交互分析脚本
 
-本脚本用于从 CNS 和 DyLNet 数据集中提取和分析群体交互模式，包括：
+本脚本用于从 CNS 数据集中提取和分析群体交互模式，包括：
 1. 提取不同情境下的群体交互数据
 2. 计算群体规模分布
 3. 计算节点转移矩阵
@@ -41,6 +41,10 @@ from code.data_analysis import (
 )
 from code.utils import get_Hs_from_groups_dict, get_cumulative_Gs_from_Hs, reduce_number_of_points
 
+datasets = ["CNS"]
+contexts = {
+    "CNS": ['in-class', 'out-of-class', 'weekend'],
+}
 
 def create_output_directories():
     """创建输出目录"""
@@ -48,7 +52,7 @@ def create_output_directories():
     print("步骤 0: 创建输出目录")
     print("=" * 60)
 
-    directories = ["results/CNS", "results/DyLNet"]
+    directories = ["results/CNS"]
     for directory in directories:
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -200,12 +204,6 @@ def compute_group_size_distributions():
     print("步骤 2.1: 计算群体规模分布")
     print("=" * 60)
 
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
-
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
         IN_PATH = f"../data-analysis/results/{dataset}/"
@@ -238,12 +236,6 @@ def compute_transition_matrices():
     print("\n" + "=" * 60)
     print("步骤 2.2: 计算节点转移矩阵")
     print("=" * 60)
-
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
 
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
@@ -283,12 +275,6 @@ def compute_group_durations():
     print("步骤 2.3: 计算群体持续时间分布")
     print("=" * 60)
 
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
-
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
         IN_PATH = f"../data-analysis/results/{dataset}/"
@@ -321,12 +307,6 @@ def compute_group_times():
     print("\n" + "=" * 60)
     print("步骤 2.4: 计算群体时间信息")
     print("=" * 60)
-
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
 
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
@@ -362,12 +342,6 @@ def compute_disaggregation_aggregation_matrices():
     print("\n" + "=" * 60)
     print("步骤 2.5.1: 计算解聚和聚合矩阵（最大子群）")
     print("=" * 60)
-
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
 
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
@@ -419,12 +393,6 @@ def compute_full_disaggregation_aggregation_matrices():
     print("步骤 2.5.2: 计算解聚和聚合矩阵（所有子群）")
     print("=" * 60)
 
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
-
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
         IN_PATH = f"../data-analysis/results/{dataset}/"
@@ -475,12 +443,6 @@ def compute_group_similarity():
     print("步骤 3.1: 计算群体相似性")
     print("=" * 60)
 
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
-
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
         IN_PATH = f"../data-analysis/results/{dataset}/"
@@ -517,12 +479,6 @@ def analyze_multiple_membership():
     print("\n" + "=" * 60)
     print("步骤 3.2: 分析多重成员关系")
     print("=" * 60)
-
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
 
     deg_count_collection = {}
 
@@ -570,12 +526,6 @@ def measure_social_memory():
     print("\n" + "=" * 60)
     print("步骤 3.3: 测量社交记忆")
     print("=" * 60)
-
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
 
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
@@ -629,12 +579,6 @@ def compute_interevent_times():
     print("步骤 3.4: 计算事件间隔时间")
     print("=" * 60)
 
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
-
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
         IN_PATH = f"../data-analysis/results/{dataset}/"
@@ -669,12 +613,6 @@ def compute_trajectories():
     print("\n" + "=" * 60)
     print("步骤 3.5: 计算节点轨迹")
     print("=" * 60)
-
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
 
     for dataset in datasets:
         print(f"\n数据集：{dataset}")
@@ -721,12 +659,6 @@ def compute_leaving_probabilities():
     print("步骤 3.6: 计算离开群体的概率")
     print("=" * 60)
 
-    datasets = ["CNS", "DyLNet"]
-    contexts = {
-        "CNS": ['in-class', 'out-of-class', 'weekend'],
-        "DyLNet": ['in-class', 'out-of-class']
-    }
-
     # 定义时间范围和群体规模范围
     taus = np.arange(1, 1000)
     gsizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -766,7 +698,7 @@ def aggregate_leaving_probabilities():
     print("步骤 3.7: 聚合离开概率（用于绘图）")
     print("=" * 60)
 
-    datasets = ['CNS', 'DyLNet']
+    # datasets = ['CNS', 'DyLNet']
     context = 'out-of-class'
 
     for dataset in datasets:
@@ -815,7 +747,7 @@ def main():
     主函数：按顺序执行所有分析步骤
     """
     print("\n" + "#" * 60)
-    print("# CNS 和 DyLNet 数据集分析流程")
+    print("# CNS 数据集分析流程")
     print("#" * 60)
 
     try:
@@ -824,7 +756,7 @@ def main():
 
         # 第 1 步：提取群体交互
         extract_cns_groups()
-        extract_dylnet_groups()
+        # extract_dylnet_groups()
 
         # 第 2 步：主要分析
         compute_group_size_distributions()
