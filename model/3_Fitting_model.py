@@ -127,7 +127,8 @@ def save_fitting_results(fit_df):
 
     out_path = RESULTS_PATH
     fname = 'parameters_fit.csv'
-    fit_df.to_csv(out_path + fname, header=True, index=False)
+    # 保存时包含索引 pars_id
+    fit_df.to_csv(out_path + fname, header=True, index=True, index_label='pars_id')
     print(f'\n拟合结果已保存到：{out_path}{fname}')
 
     return fit_df
@@ -177,7 +178,7 @@ def generate_statistics_summary(fit_df):
     # 保存更新后的 DataFrame（包含联合 JSD）
     out_path = RESULTS_PATH
     fname = 'parameters_fit_with_combined.csv'
-    fit_df.to_csv(out_path + fname, header=True, index=False)
+    fit_df.to_csv(out_path + fname, header=True, index=True, index_label='pars_id')
     print(f'\n包含联合 JSD 的结果已保存到：{out_path}{fname}')
 
 
