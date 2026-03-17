@@ -5,12 +5,29 @@
 计算三角闭包前后的群组
 比较不同时间步的交互数量
 可视化预处理的影响
-输出文件：
-results/CNS_groups_at_t_dict_after_triclo.p: 三角闭包后的群组数据
-results/CNS_groups_at_t_dict_before_triclo.p: 三角闭包前的群组数据
-figures/CNS_triclo_impact_comparison.pdf: 链接数量对比图
-figures/CNS_group_size_distribution.pdf: 群组大小分布图
-results/CNS_preprocessing_impact_summary.txt: 分析摘要报告
+
+ 输出文件列表
+    1. Pickle 数据文件
+    results/CNS_groups_at_t_dict_after_triclo.p
+    三角闭包后的群组数据（按时间步组织）
+    results/CNS_groups_at_t_dict_before_triclo.p
+    三角闭包前的群组数据（按时间步组织）
+    2. PDF 图表文件
+    figures/CNS_triclo_impact_comparison.pdf
+    对比图：展示三角闭包前后每个时间步的链接数量变化
+    X 轴：时间戳
+    Y 轴：链接数量
+    两条曲线分别代表处理前后的对比
+    figures/CNS_group_size_distribution.pdf
+    双栏直方图：比较三角闭包前后的群组大小分布
+    左图：处理前的群组大小分布
+    右图：处理后的群组大小分布
+    3. 文本报告
+    results/CNS_preprocessing_impact_summary.txt
+    分析摘要报告，包含：
+    链接数量统计（处理前后的总链接数、增加量、增长百分比）
+    群组数量统计
+    分析结论
 """
 import sys
 import pandas as pd

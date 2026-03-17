@@ -23,7 +23,9 @@ def normalize_transition_matrix(T):
     
     def normalize_by_row(matrix):
         row_sums = matrix.sum(axis=1)
-        new_matrix = matrix / row_sums[:, np.newaxis]
+        # 避免除零错误：将行和为 0 的位置设置为 1（保持该行全为 0）
+        row_sums_safe = np.where(row_sums == 0, 1, row_sums)
+        new_matrix = matrix / row_sums_safe[:, np.newaxis]
         return new_matrix
     
     #Normalising by size of the target group (column index+1)

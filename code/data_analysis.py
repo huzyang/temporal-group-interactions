@@ -104,36 +104,39 @@ def get_transition_matrix(Hs, max_k = 20, normed=True):
     """
     
     #Initializing an empty transition matrix T to fill
-    timestamps = list(Hs.keys())
+    # timestamps = list(Hs.keys())
+    timestamps = sorted(list(Hs.keys()))  # 排序确保时间顺序
     T = np.zeros((max_k, max_k), dtype=int)
 
     #Scrolling over all timestamps (except the last one)
-    for t in timestamps[:-1]:
-        #For each node present at time t
+    for i in range(len(timestamps) - 1):
+        t = timestamps[i]
+        t_next = timestamps[i + 1]  # 使用实际存在的下一个时间步
+        # For each node present at time t
         for n in Hs[t].nodes:
-            #If the node is also present at time t+1
-            if n in Hs[t+1].nodes:
-                #Looping over the groups of n at t
+            # If the node is also present at time t+1
+            if n in Hs[t_next].nodes:
+                # Looping over the groups of n at t
                 for group_t in Hs[t].nodes.memberships(n):
-                    #Computing the size of the group as the order of the edge+1
-                    k_t = Hs[t].order(group_t)+1
-                    #Looping over the groups of n at t+1
-                    for group_t1 in Hs[t+1].nodes.memberships(n):
-                        #Computing the size of the group as the order of the edge+1
-                        k_t1 = Hs[t+1].order(group_t1)+1
-                        
-                        if k_t!=k_t1: #If there is a change in the group size
+                    # Computing the size of the group as the order of the edge+1
+                    k_t = Hs[t].order(group_t) + 1
+                    # Looping over the groups of n at t+1
+                    for group_t1 in Hs[t_next].nodes.memberships(n):
+                        # Computing the size of the group as the order of the edge+1
+                        k_t1 = Hs[t_next].order(group_t1) + 1
+
+                        if k_t != k_t1:  # If there is a change in the group size
                             try:
-                                T[k_t-1][k_t1-1]+=1       #-1 since it starts from 0
-                            except IndexError: #One of the two group sizes is bigger than the provided max_k
+                                T[k_t - 1][k_t1 - 1] += 1  # -1 since it starts from 0
+                            except IndexError:  # One of the two group sizes is bigger than the provided max_k
                                 continue
-                        
-                        else: #Same group size, but the groups might still be different
-                            if get_jaccard(Hs[t]._edge[group_t], Hs[t+1]._edge[group_t1])!=k_t:
-                                #Groups do not overlap perfectly, so it's OK
+
+                        else:  # Same group size, but the groups might still be different
+                            if get_jaccard(Hs[t]._edge[group_t], Hs[t_next]._edge[group_t1]) != k_t:
+                                # Groups do not overlap perfectly, so it's OK
                                 try:
-                                    T[k_t-1][k_t1-1]+=1   #-1 since it starts from 0  
-                                except IndexError: #One of the two group sizes is bigger than the provided max_k
+                                    T[k_t - 1][k_t1 - 1] += 1  # -1 since it starts from 0
+                                except IndexError:  # One of the two group sizes is bigger than the provided max_k
                                     continue
 
     if normed:

@@ -11,8 +11,73 @@ CNS 数据集的群体交互分析脚本
 5. 计算群体解聚和聚合矩阵
 6. 分析群体相似性、多重成员关系、社交记忆等
 
-作者：Converted from Jupyter notebook
-日期：2026-03-14
+输出文件列表
+第 1 步：提取群体交互
+    results/CNS/groups_at_t_in-class.p - 课堂内群体数据
+    results/CNS/groups_at_t_out-of-class.p - 课堂外群体数据
+    results/CNS/groups_at_t_weekend.p - 周末群体数据
+第 2 步：主要分析
+2.1 群体规模分布
+    results/CNS/Pk_in-class.csv ✓
+    results/CNS/Pk_out-of-class.csv ✓
+    results/CNS/Pk_weekend.csv ✓
+2.2 节点转移矩阵
+    results/CNS/T_in-class.csv ❌
+    results/CNS/T_out-of-class.csv ❌
+    results/CNS/T_weekend.csv ❌
+2.3 群体持续时间分布
+    results/CNS/gdurations_in-class.p
+    results/CNS/gdurations_out-of-class.p
+    results/CNS/gdurations_weekend.p
+2.4 群体时间信息
+    results/CNS/group_times_in-class.p
+    results/CNS/group_times_out-of-class.p
+    results/CNS/group_times_weekend.p
+2.5 解聚和聚合矩阵（最大子群）
+    results/CNS/D_in-class.csv
+    results/CNS/A_in-class.csv
+    results/CNS/D_out-of-class.csv
+    results/CNS/A_out-of-class.csv
+    results/CNS/D_weekend.csv
+    results/CNS/A_weekend.csv
+2.5 解聚和聚合矩阵（所有子群）
+    results/CNS/Dfull_in-class.csv
+    results/CNS/Afull_in-class.csv
+    results/CNS/Dfull_out-of-class.csv
+    results/CNS/Afull_out-of-class.csv
+    results/CNS/Dfull_weekend.csv
+    results/CNS/Afull_weekend.csv
+第 3 步：补充材料分析
+3.1 群体相似性
+    results/CNS/Jfull_in-class.p
+    results/CNS/Jfull_out-of-class.p
+    results/CNS/Jfull_weekend.p
+3.2 多重成员关系
+    （仅打印统计信息，不保存文件）
+3.3 社交记忆
+    results/CNS/social_memory_in-class.csv.gz
+    results/CNS/social_memory_out-of-class.csv.gz
+    results/CNS/social_memory_weekend.csv.gz
+3.4 事件间隔时间
+    results/CNS/interevent_times_in-class.p
+    results/CNS/interevent_times_out-of-class.p
+    results/CNS/interevent_times_weekend.p
+3.5 节点轨迹
+    results/CNS/trajectories_matrix_in-class.p
+    results/CNS/trajectories_matrix_i2n_in-class.p
+
+3.6 离开群体的概率
+    results/CNS/Prob_leaving_group_sizek_after_tau_in-class.p
+    results/CNS/Prob_leaving_group_sizek_after_tau_out-of-class.p
+    results/CNS/Prob_leaving_group_sizek_after_tau_weekend.p
+3.7 聚合离开概率（用于绘图）
+    results/CNS/A_Binned_group_change_prob_out-of-class.p
+
+✅ 总结
+该脚本会生成 30+ 个文件，包括：
+CSV 文件：群体规模分布、转移矩阵、解聚/聚合矩阵
+Pickle 文件 (.p)：群体数据、持续时间、轨迹等中间结果
+压缩 CSV 文件 (.csv.gz)：社交记忆数据
 """
 
 import sys
