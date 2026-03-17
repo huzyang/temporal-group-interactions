@@ -29,7 +29,9 @@ from matplotlib.lines import Line2D
 import matplotlib as mplt
 
 # 设置中文字体
-mplt.rcParams['font.sans-serif'] = 'Avenir'
+mplt.rcParams['figure.dpi'] = 300
+mplt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans']
+mplt.rcParams['axes.unicode_minus'] = False
 
 # 设置图表样式
 plt.rcParams['xtick.major.width'] = 1.2
@@ -379,8 +381,8 @@ def fill_single_gaps(df):
             if ((df_ab['# timestamp'] == t + 2).any() and
                     (not (df_ab['# timestamp'] == t + 1).any())):
                 # 计算平均 RSSI
-                rssi_t = int(df_ab[df_ab['# timestamp'] == t]['rssi'])
-                rssi_t2 = int(df_ab[df_ab['# timestamp'] == t + 2]['rssi'])
+                rssi_t = int(df_ab[df_ab['# timestamp'] == t]['rssi'].iloc[0])
+                rssi_t2 = int(df_ab[df_ab['# timestamp'] == t + 2]['rssi'].iloc[0])
                 avg_rssi = (rssi_t + rssi_t2) / 2
                 entries_to_add.append([t + 1, user_a, user_b, avg_rssi])
 

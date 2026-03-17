@@ -37,7 +37,9 @@ plt.rcParams['axes.linewidth'] = 1.2
 
 import matplotlib as mplt
 
-mplt.rcParams['font.sans-serif'] = 'Avenir'
+mplt.rcParams['figure.dpi'] = 300
+mplt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans']
+mplt.rcParams['axes.unicode_minus'] = False
 
 
 def create_directories():

@@ -815,19 +815,19 @@ def measure_social_memory(Hs, groups_at_t_dict, Gs, groups_and_times):
                             next_groups_given_size = [g for g in all_next_groups if (len(g)==(target_size)) and (n not in g)] 
                         
                             #If there is at least one group of the desiderd size:
-                            if len(next_groups_given_size)>1:
-                                #I pick a random group
+                            if len(next_groups_given_size) >= 1:
+                                # I pick a random group
                                 random_group_given_size_draft = random.choice(next_groups_given_size)
-                                #I compute the number of nodes of this random group that n already met up to t
-                                try:
-                                    num_known_nodes_random_given_size = len([j for j in G.neighbors(n) if j in random_group_given_size])
-                                except:
-                                    #if n only appeared isolated, it won't have neighbors, so there would be an error
+                                # I compute the number of nodes of this random group that n already met up to t
+                                if n in G and G.has_node(n):
+                                    num_known_nodes_random_given_size = len([j for j in G.neighbors(n) if j in random_group_given_size_draft])
+                                else:
+                                    # if n only appeared isolated, it won't have neighbors, so there would be an error
                                     num_known_nodes_random_given_size = 0
-                                #Computing the density by normalising with group size
-                                density_known_nodes_random_given_size = num_known_nodes_random_given_size/target_size
+                                # Computing the density by normalising with group size
+                                density_known_nodes_random_given_size = num_known_nodes_random_given_size / target_size
                             else:
-                                #If there are no groups of the desired size left, the only one was the chosen one
+                                # If there are no groups of the desired size left, the only one was the chosen one
                                 density_known_nodes_random_given_size = density_known_nodes
 
                         #######################################
