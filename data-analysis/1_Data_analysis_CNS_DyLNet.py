@@ -581,7 +581,7 @@ def analyze_multiple_membership():
     return deg_count_collection
 
 
-def measure_social_memory():
+def run_social_memory_analysis():
     """
     测量社交记忆
 
@@ -824,21 +824,21 @@ def main():
         # extract_dylnet_groups()
 
         # 第 2 步：主要分析
-        compute_group_size_distributions()
-        compute_transition_matrices()
-        compute_group_durations()
-        compute_group_times()
-        compute_disaggregation_aggregation_matrices()
-        compute_full_disaggregation_aggregation_matrices()
+        compute_group_size_distributions() # 步骤 2.1: 计算群体规模分布
+        compute_transition_matrices() # 步骤 2.2: 计算节点转移矩阵
+        compute_group_durations() # 步骤 2.3: 获取群体持续时间分布
+        compute_group_times() # 步骤 2.4: 获取群体时间信息
+        compute_disaggregation_aggregation_matrices()  # 步骤 2.5.1: 计算解聚和聚合矩阵（最大子群）
+        compute_full_disaggregation_aggregation_matrices()  # 步骤 2.5.2: 计算解聚和聚合矩阵（所有子群）
 
         # 第 3 步：补充材料分析
-        compute_group_similarity()
-        analyze_multiple_membership()
-        measure_social_memory()
-        compute_interevent_times()
-        compute_trajectories()
-        compute_leaving_probabilities()
-        aggregate_leaving_probabilities()
+        compute_group_similarity()  # 步骤 3.1: 计算群体相似性
+        analyze_multiple_membership()  # 步骤 3.2: 分析多重成员关系
+        run_social_memory_analysis()  # 步骤 3.3: 测量社交记忆
+        compute_interevent_times()  # 步骤 3.4: 计算事件间隔时间
+        compute_trajectories()  # 步骤 3.5: 计算节点轨迹
+        compute_leaving_probabilities()  # 步骤 3.6: 计算离开群体的概率
+        aggregate_leaving_probabilities()  # 步骤 3.7: 聚合离开概率（用于绘图）
 
         print("\n" + "=" * 60)
         print("✓ 所有分析完成！")

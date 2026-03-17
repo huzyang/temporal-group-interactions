@@ -149,7 +149,7 @@ def get_cumulative_Gs_from_Hs(Hs):
     #Scrolling over all Hypergraphs
     for t, H in Hs.items():
         #Extracting the 1-skeleton at this time
-        G_t = xgi.convert.convert_to_graph(H)
+        G_t = xgi.convert.to_graph(H)
         #Adding these links to the growing graph
         G.add_edges_from(G_t.edges)
         #Adding the graph to the list

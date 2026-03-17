@@ -1,0 +1,97 @@
+C:\Users\admin\.conda\envs\temporal-nc\python.exe E:\AAHuzy\Code\temporal-group-interactions\data-analysis\1_Data_analysis_CNS_DyLNet.py
+
+############################################################
+# CNS 数据集分析流程
+############################################################
+============================================================
+步骤 0: 创建输出目录
+============================================================
+  ✓ 目录已存在：results/CNS
+
+TODO # 补充其他步骤信息
+
+============================================================
+步骤 3.3: 测量社交记忆
+============================================================
+
+数据集：CNS
+  情境：in-class
+    超图对象已加载
+    群体时间信息已加载
+    累积接触网络已计算
+    社交记忆数据框已计算
+    ✓ 保存到：../data-analysis/results/CNS/social_memory_in-class.csv.gz
+  情境：out-of-class
+    超图对象已加载
+    群体时间信息已加载
+    累积接触网络已计算
+    社交记忆数据框已计算
+    ✓ 保存到：../data-analysis/results/CNS/social_memory_out-of-class.csv.gz
+  情境：weekend
+    超图对象已加载
+    群体时间信息已加载
+    累积接触网络已计算
+    社交记忆数据框已计算
+    ✓ 保存到：../data-analysis/results/CNS/social_memory_weekend.csv.gz
+
+============================================================
+步骤 3.4: 计算事件间隔时间
+============================================================
+
+数据集：CNS
+  情境：in-class
+    群体时间信息已加载
+    事件间隔时间已计算
+    ✓ 保存到：../data-analysis/results/CNS/interevent_times_in-class.p
+  情境：out-of-class
+    群体时间信息已加载
+    事件间隔时间已计算
+    ✓ 保存到：../data-analysis/results/CNS/interevent_times_out-of-class.p
+  情境：weekend
+    群体时间信息已加载
+    事件间隔时间已计算
+    ✓ 保存到：../data-analysis/results/CNS/interevent_times_weekend.p
+
+============================================================
+步骤 3.5: 计算节点轨迹
+============================================================
+
+数据集：CNS
+  情境：in-class
+    超图对象已加载
+    轨迹矩阵已计算
+    ✓ 保存到：../data-analysis/results/CNS/trajectories_matrix_i2n_in-class.p
+  情境：out-of-class
+    超图对象已加载
+    轨迹矩阵已计算
+    ✓ 保存到：../data-analysis/results/CNS/trajectories_matrix_i2n_out-of-class.p
+  情境：weekend
+    超图对象已加载
+    轨迹矩阵已计算
+    ✓ 保存到：../data-analysis/results/CNS/trajectories_matrix_i2n_weekend.p
+
+============================================================
+步骤 3.6: 计算离开群体的概率
+============================================================
+
+数据集：CNS
+  情境：in-class
+    计算概率...
+    ✓ 保存到：../data-analysis/results/CNS/Prob_leaving_group_sizek_after_tau_in-class.p
+  情境：out-of-class
+    计算概率...
+    ✓ 保存到：../data-analysis/results/CNS/Prob_leaving_group_sizek_after_tau_out-of-class.p
+  情境：weekend
+    计算概率...
+    ✓ 保存到：../data-analysis/results/CNS/Prob_leaving_group_sizek_after_tau_weekend.p
+
+============================================================
+步骤 3.7: 聚合离开概率（用于绘图）
+============================================================
+
+数据集：CNS
+  ✓ 保存到：results/CNS/A_Binned_group_change_prob_out-of-class.p
+
+============================================================
+✓ 所有分析完成！
+============================================================
